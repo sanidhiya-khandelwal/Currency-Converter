@@ -1,11 +1,16 @@
 import { useState } from 'react'
+import useCurrencyConverter from './hooks/useCurrencyConverter'
+
 import './App.css'
 
 function App() {
-
+  const data = useCurrencyConverter('inr')
+  console.log(data);
   return (
     <>
-      <h1>thi is</h1>
+      <h1>
+        Currency Converter data
+      </h1>
     </>
   )
 }
