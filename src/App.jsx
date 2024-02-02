@@ -4,8 +4,26 @@ import useCurrencyConverter from './hooks/useCurrencyConverter'
 import './App.css'
 
 function App() {
-  const data = useCurrencyConverter('inr')
-  console.log(data);
+
+  const [amount, setAmount] = useState(0);
+  const [from, setFrom] = useState("usd");
+  const [to, setTo] = useState("inr");
+  const [convertedAmount, setConvertedAmount] = useState(0);
+
+
+  const currencyInfo = useCurrencyConverter('inr');
+  const options = Object.keys(currencyInfo)
+
+  const swap = () => {
+    setFrom(to)
+    setTo(from)
+    setAmount(convertedAmount)
+    setConvertedAmount(amount)
+  }
+
+  const convert = () => {
+    setConvertedAmount(amount * currencyInfo[to])
+  }
   return (
     <>
       <h1>
